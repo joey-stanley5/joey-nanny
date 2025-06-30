@@ -13,7 +13,7 @@ A modern, responsive one-page website template designed for nannies to showcase 
 
 ## Sections
 
-1. **Section 1 (Home)**: Introduction and call-to-action buttons
+1. **Section 1 (Hero)**: Introduction and call-to-action buttons
 2. **Section 2 (About)**: Personal information, skills, and statistics
 3. **Section 3 (Experience)**: Education, certifications, and work experience
 4. **Section 4 (Contact)**: Contact information and contact form
@@ -23,7 +23,7 @@ A modern, responsive one-page website template designed for nannies to showcase 
 ### 1. Personal Information
 Edit the following in `index.html`:
 - Replace "Your Name" with your actual name
-- Update the home title and subtitle
+- Update the hero title and subtitle
 - Modify the about section content
 - Update statistics (years of experience, families served, etc.)
 
@@ -42,7 +42,7 @@ Update the experience cards with:
 - Skills and qualifications
 
 ### 4. Profile Picture
-Replace the placeholder icon in the home section:
+Replace the placeholder icon in the hero section:
 ```html
 <!-- Replace this -->
 <div class="profile-placeholder">
@@ -50,7 +50,7 @@ Replace the placeholder icon in the home section:
 </div>
 
 <!-- With your actual image -->
-<div class="home-image">
+<div class="hero-image">
     <img src="your-photo.jpg" alt="Your Name" class="profile-image">
 </div>
 ```
