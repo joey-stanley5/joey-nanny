@@ -112,7 +112,7 @@ body {
     padding: 0 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 1rem;
     align-items: center;
 }
 
@@ -171,18 +171,26 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: translateX(100px);
 }
 
 .profile-placeholder {
-    width: 300px;
-    height: 300px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;    /* circle */
+    overflow: hidden;      /* crop overflow */
+    background: #e5e7eb;   /* light background, optional */
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 8rem;
-    color: rgba(255, 255, 255, 0.3);
+    align-items: center;
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.25)
 }
 
 /* Section Styles */
@@ -327,15 +335,119 @@ section {
     font-weight: bold;
 }
 
+/* Services Section */
+.services {
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4f46e5, #7c3aed);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(79, 70, 229, 0.2);
+    border-color: #4f46e5;
+}
+
+.service-card-large {
+    grid-column: span 2;
+}
+
+.service-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    border-radius: 50%;
+    margin: 0 auto 1.5rem auto;
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+}
+
+.service-icon i {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.service-card h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1f2937;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.service-card p {
+    color: #4b5563;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.service-card ul {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.service-card li {
+    padding: 0.5rem 0;
+    color: #4b5563;
+    position: relative;
+    padding-left: 1.8rem;
+    font-size: 1.05rem;
+}
+
+.service-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #4f46e5;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
 /* Contact Section */
 .contact {
     background: #f8fafc;
 }
 
 .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.contact-info {
+    max-width: 600px;
 }
 
 .contact-info h3 {
@@ -356,18 +468,22 @@ section {
 .contact-item {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
     margin-bottom: 1rem;
     color: #4b5563;
+    font-size: 1.1rem;
 }
 
 .contact-item i {
     color: #4f46e5;
     width: 20px;
+    font-size: 1.2rem;
 }
 
 .social-links {
     display: flex;
+    justify-content: center;
     gap: 1rem;
 }
 
@@ -482,6 +598,27 @@ section {
     .section-title {
         font-size: 2rem;
     }
+
+    .service-card-large {
+        grid-column: span 1;
+    }
+    
+    .service-card {
+        padding: 2rem;
+    }
+    
+    .service-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .service-icon i {
+        font-size: 2rem;
+    }
+    
+    .service-card h3 {
+        font-size: 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -494,8 +631,8 @@ section {
     }
 
     .profile-placeholder {
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
         font-size: 5rem;
     }
 
